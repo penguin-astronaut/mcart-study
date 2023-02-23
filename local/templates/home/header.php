@@ -1,5 +1,7 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?
+IncludeTemplateLangFile(__FILE__);
+
 use Bitrix\Main\Page\Asset;
 
 Asset::getInstance()->addString('<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500">');
@@ -33,7 +35,7 @@ Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/aos.js");
 Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.js");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?=LANGUAGE_ID?>">
 
 <head>
     <title><?$APPLICATION->ShowTitle()?></title>

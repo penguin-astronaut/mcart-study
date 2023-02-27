@@ -163,6 +163,4 @@ Asset::getInstance()->addJs("/local/templates/.default/js/main.js");
             </div>
         </div>
     </div>
-    <div class="site-section border-bottom">
-        <div class="container">
 <? endif; ?>

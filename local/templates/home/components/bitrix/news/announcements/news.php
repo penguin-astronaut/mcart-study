@@ -32,26 +32,26 @@ $this->setFrameMode(true);
 );?>
 <br />
 <?endif?>
-<?if($arParams["USE_FILTER"]=="Y"):?>
-<?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.filter",
-	"",
-	Array(
-		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
-		"FILTER_NAME" => $arParams["FILTER_NAME"],
-		"FIELD_CODE" => $arParams["FILTER_FIELD_CODE"],
-		"PROPERTY_CODE" => $arParams["FILTER_PROPERTY_CODE"],
-		"CACHE_TYPE" => $arParams["CACHE_TYPE"],
-		"CACHE_TIME" => $arParams["CACHE_TIME"],
-		"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-		"PAGER_PARAMS_NAME" => $arParams["PAGER_PARAMS_NAME"],
-	),
-	$component
-);
-?>
-<br />
-<?endif?>
+<?//if($arParams["USE_FILTER"]=="Y"):?>
+<?//$APPLICATION->IncludeComponent(
+//	"bitrix:catalog.filter",
+//	"",
+//	Array(
+//		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+//		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
+//		"FILTER_NAME" => $arParams["FILTER_NAME"],
+//		"FIELD_CODE" => $arParams["FILTER_FIELD_CODE"],
+//		"PROPERTY_CODE" => $arParams["FILTER_PROPERTY_CODE"],
+//		"CACHE_TYPE" => $arParams["CACHE_TYPE"],
+//		"CACHE_TIME" => $arParams["CACHE_TIME"],
+//		"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+//		"PAGER_PARAMS_NAME" => $arParams["PAGER_PARAMS_NAME"],
+//	),
+//	$component
+//);
+//?>
+<!--<br />-->
+<?//endif?>
 <div class="pt-5">
     <div class="container">
         <form class="row">
@@ -148,7 +148,11 @@ $this->setFrameMode(true);
         <div class="row mb-5">
             <div class="col-12">
                 <div class="site-section-title">
-                    <h2>New Properties for You</h2>
+                    <? if ($APPLICATION->GetCurPage(false) == '/seller_account/my_announcement/'): ?>
+                        <h2>Ваши объявления</h2>
+                    <? else: ?>
+                        <h2>New Properties for You</h2>
+                    <? endif;?>
                 </div>
             </div>
         </div>

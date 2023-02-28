@@ -2,14 +2,14 @@
 $aMenuLinks = Array(
 	Array(
 		"Контакты", 
-		"/about/contacts/index.php", 
+		"/about/contacts/",
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Обратная связь", 
-		"/about/contacts/feedback.php", 
+		"/about/contacts/feedback.php",
 		Array(), 
 		Array(), 
 		"" 

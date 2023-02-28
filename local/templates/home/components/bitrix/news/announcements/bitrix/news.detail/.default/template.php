@@ -31,10 +31,12 @@ $this->setFrameMode(true);
             <div class="col-lg-8" style="margin-top: -150px;">
                 <div class="mb-5">
                     <div class="slide-one-item home-slider owl-carousel">
-                        <?if ($arResult['DISPLAY_PROPERTIES']['GALLERY']):?>
+                        <?if ($arResult['DISPLAY_PROPERTIES']['GALLERY'] && !$arResult['DISPLAY_PROPERTIES']['GALLERY']['ID']):?>
                             <? foreach ($arResult['DISPLAY_PROPERTIES']['GALLERY']['FILE_VALUE'] as $photo):?>
                                 <div><img src="<?=$photo['SRC']?>" alt="Image" class="img-fluid"></div>
                             <?endforeach;?>
+                        <?elseif($arResult['DISPLAY_PROPERTIES']['GALLERY']):?>
+                            <div><img src="<?=$arResult['DISPLAY_PROPERTIES']['GALLERY']['FILE_VALUE']['SRC']?>" alt="Image" class="img-fluid"></div>
                         <?else:?>
                             <div><img src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>" alt="Image" class="img-fluid"></div>
                         <?endif;?>
@@ -109,12 +111,16 @@ $this->setFrameMode(true);
                         <div class="col-12">
                             <h2 class="h4 text-black mb-3">Дополнительные материалы</h2>
                         </div>
-                        <?if ($arResult['DISPLAY_PROPERTIES']['MATERIALS']):?>
+                        <?if ($arResult['DISPLAY_PROPERTIES']['MATERIALS'] && !$arResult['DISPLAY_PROPERTIES']['MATERIALS']['ID']):?>
                             <? foreach ($arResult['DISPLAY_PROPERTIES']['MATERIALS']['FILE_VALUE'] as $material):?>
                                 <div class="col-12">
                                     <a href="<?=$material['SRC']?>" class="image-popup gal-item"><?=$material['ORIGINAL_NAME']?></a>
                                 </div>
                             <?endforeach;?>
+                        <? elseif($arResult['DISPLAY_PROPERTIES']['MATERIALS']): ?>
+                            <div class="col-12">
+                                <a href="<?=$arResult['DISPLAY_PROPERTIES']['MATERIALS']['FILE_VALUE']['SRC']?>" class="image-popup gal-item"><?=$arResult['DISPLAY_PROPERTIES']['MATERIALS']['FILE_VALUE']['ORIGINAL_NAME']?></a>
+                            </div>
                         <?else:?>
                             <div class="col-12">Материалы отуствуют</div>
                         <?endif;?>

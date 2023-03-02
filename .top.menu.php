@@ -1,7 +1,7 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Главная страница", 
+		"Главная", 
 		"/index.php", 
 		Array(), 
 		Array(), 
@@ -15,6 +15,13 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
+		"О сервисе", 
+		"/about/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
 		"Новости", 
 		"/about/news", 
 		Array(), 
@@ -22,11 +29,11 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"О сервисе", 
-		"/about/", 
+		"Личный кабинет покупателя", 
+		"/customer_account/", 
 		Array(), 
 		Array(), 
-		"" 
+		"CSite::InGroup(array(6))" 
 	),
 	Array(
 		"Личный кабинет продавца", 
@@ -36,11 +43,18 @@ $aMenuLinks = Array(
 		"CSite::InGroup(array(7))" 
 	),
 	Array(
-		"Личный кабинет покупателя", 
-		"/customer_account/", 
+		"Войти", 
+		"/auth/", 
 		Array(), 
 		Array(), 
-		"CSite::InGroup(array(6))" 
+		"!\$USER->IsAuthorized()" 
+	),
+	Array(
+		"Выйти", 
+		"/auth/logout.php", 
+		Array(), 
+		Array(), 
+		"\$USER->IsAuthorized()" 
 	)
 );
 ?>

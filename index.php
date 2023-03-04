@@ -4,7 +4,7 @@ $APPLICATION->SetTitle("Биржа недвижимости");
 ?>
 <?
 $GLOBALS['announcementFilter'] = ['!PROPERTY_PREFERRED_DEAL' => false];
-
+ 
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"slider_banner", 
@@ -29,7 +29,7 @@ $APPLICATION->IncludeComponent(
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
 		"FIELD_CODE" => array(
-			0 => "",
+			0 => "DETAIL_PICTURE",
 			1 => "",
 		),
 		"FILTER_NAME" => "announcementFilter",
@@ -132,11 +132,14 @@ $APPLICATION->IncludeComponent(
                 "CACHE_TIME" => "300",
                 "CACHE_TYPE" => "A",
                 "DETAIL_URL" => "",
-                "FIELD_CODE" => array(
-                    0 => "",
-                    1 => "PREVIEW_PICTURE",
-                    2 => "",
-                ),
+                "FIELD_CODE" => [
+                    "PREVIEW_PICTURE",
+                    "PROPERTY_PRICE",
+                    "PROPERTY_TOTAL_AREA",
+                    "PROPERTY_FLOORS_NUMBERS",
+                    "PROPERTY_BATHROOMS_NUMBERS",
+                    "PROPERTY_AVAILABILITY_GARAGE"
+                ],
                 "IBLOCKS" => array(
                     0 => "5",
                 ),

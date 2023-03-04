@@ -95,16 +95,19 @@ $this->setFrameMode(true);
                         <div class="col-12">
                             <h2 class="h4 text-black mb-3">Property Gallery</h2>
                         </div>
-                        <?if ($arResult['DISPLAY_PROPERTIES']['GALLERY']):?>
-                            <? foreach ($arResult['DISPLAY_PROPERTIES']['GALLERY']['FILE_VALUE'] as $photo):?>
+                            <?if ($arResult['DISPLAY_PROPERTIES']['GALLERY'] && !$arResult['DISPLAY_PROPERTIES']['GALLERY']['ID']):?>
+                                <? foreach ($arResult['DISPLAY_PROPERTIES']['GALLERY']['FILE_VALUE'] as $photo):?>
+                                    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                                        <a href="<?=$photo['SRC']?>" class="image-popup gal-item"><img src="<?=$photo['SRC']?>" alt="Image" class="img-fluid"></a>
+                                    </div>
+                                <?endforeach;?>
+                            <?elseif($arResult['DISPLAY_PROPERTIES']['GALLERY']):?>
                                 <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                                    <a href="<?=$photo['SRC']?>" class="image-popup gal-item"><img src="<?=$photo['SRC']?>" alt="Image" class="img-fluid"></a>
+                                    <a href="<?=$arResult['DISPLAY_PROPERTIES']['GALLERY']['FILE_VALUE']['SRC']?>" class="image-popup gal-item"><img src="<?=$arResult['DISPLAY_PROPERTIES']['GALLERY']['FILE_VALUE']['SRC']?>" alt="Image" class="img-fluid"></a>
                                 </div>
-                            <?endforeach;?>
-                        <?else:?>
-                            <div class="col-12">Изображения отсуствуют</div>
-                        <?endif;?>
-
+                            <?else:?>
+                                <div class="col-12">Изображения отсуствуют</div>
+                            <?endif;?>
                     </div>
 
                     <div class="row mt-5">
